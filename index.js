@@ -1,3 +1,4 @@
+// Added in all needed packages and classes into the index
 const inquirer = require("inquirer");
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
@@ -5,8 +6,10 @@ const Intern = require("./lib/Intern.js");
 const generateHTML = require("./lib/generateHTML.js");
 const fs = require("fs");
 
+// This will be used for generating the HTML page with all the employees' info
 const team = [generateHTML.header(), generateHTML.footer()];
 
+// This function uses inquirer to get manager info
 function managerStart() {
     return inquirer.prompt([
         {
@@ -32,6 +35,8 @@ function managerStart() {
     ])
 }
 
+// This function uses inquirer to get employee info, adding in another member, intern, or closing out and having the product
+// finish 
 function teamProfile(){
     inquirer.prompt([
       {
@@ -102,7 +107,8 @@ function teamProfile(){
     });
   }
 
-  function printHTML(members){
+// This function just makes a HTML page after getting all necessary data
+function printHTML(members){
     fs.writeFile('team.html', members.toString(), (err) => {
         if(err) {
             throw err;
@@ -110,12 +116,14 @@ function teamProfile(){
         console.log("Calculating...");
     });
 
+    // Timeout is just a little bonus for being fancy and producing the HTML after a second of waiting
     setTimeout(() => {
         console.log("Roster has been made");
     }, '1000');
   }
 
-  managerStart()
+// This calls the function starting up inquirer, going through the loop after typing in 'node index.js' when using terminal
+managerStart()
   .then((data) => {
     const manager = new Manager(data.name, data.id, data.email, data.officeNum);
     team.splice(team.length-1, 0, manager.getHTML());
