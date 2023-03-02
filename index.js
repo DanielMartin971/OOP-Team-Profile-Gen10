@@ -18,7 +18,7 @@ function managerStart() {
             message: "What is your manager's name?"
         },
         {
-            type: 'input',
+            type: 'number',
             name: 'id',
             message: "What is your manager's ID?"
         },
@@ -28,7 +28,7 @@ function managerStart() {
             message: "What is your manager's email?"
         },
         {
-            type: 'input',
+            type: 'number',
             name: 'officeNum',
             message: "What is your manager's office number?"
         },
@@ -54,7 +54,7 @@ function teamProfile(){
             message: "What is your engineer's name?"
           },
           {
-            type: "input",
+            type: "number",
             name: "id",
             message: "What is your engineer's ID?"
           },
@@ -82,7 +82,7 @@ function teamProfile(){
             message: "What is your intern's name?"
           },
           {
-            type: "input",
+            type: "number",
             name: "id",
             message: "What is your intern's ID?"
           },
